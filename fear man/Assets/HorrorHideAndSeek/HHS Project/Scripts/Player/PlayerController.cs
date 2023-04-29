@@ -274,6 +274,11 @@ public class PlayerController : MonoBehaviour {
         float mouseX = CrossPlatformInputManager.GetAxis("Mouse X") * (mouseSensetivity * 2) * Time.deltaTime;
         float mouseY = CrossPlatformInputManager.GetAxis("Mouse Y") * (mouseSensetivity * 2) * Time.deltaTime;
 
+        Vector2 tempvector = new Vector2(mouseX, mouseY).normalized;
+
+        mouseX = tempvector.x;
+        mouseY = tempvector.y;
+
         clampX += mouseY;
         clampY += mouseX;
 
@@ -282,12 +287,14 @@ public class PlayerController : MonoBehaviour {
             clampX = clampXaxis.y;
             mouseY = 0.0f;
             ClampXAxis(clampXaxis.x);
+            return;
         }
         else if (clampX < clampXaxis.x)
         {
             clampX = clampXaxis.x;
             mouseY = 0.0f;
             ClampXAxis(clampXaxis.y);
+            return;
         }
 
 
@@ -300,15 +307,16 @@ public class PlayerController : MonoBehaviour {
                 clampY = clampYaxis.y;
                 mouseX = 0.0f;
                 ClampYAxis(clampYaxis.y);
+                return;
             }
             else if (clampY < clampYaxis.x)
             {
                 clampY = clampYaxis.x;
                 mouseX = 0.0f;
                 ClampYAxis(clampYaxis.x);
+                return;
             }
         }
-
 
         cameraTransform.Rotate(Vector3.left * mouseY);
         transform.Rotate(Vector3.up * mouseX);

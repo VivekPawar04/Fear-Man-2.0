@@ -113,16 +113,20 @@ public class GameControll : MonoBehaviour {
             pause = true;
             pausePanel.SetActive(pause);
             Time.timeScale = 0.0f;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+
+            //comment this if mobile build, This Line causes input read problems in mobile : Anilkumar @ 29/04/2023
+            //Cursor.visible = true;
+            //Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             pause = false;
             pausePanel.SetActive(pause);
             Time.timeScale = 1.0f;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+
+            //comment this if mobile build, This Line causes input read problems in mobile : Anilkumar @ 29/04/2023
+            //Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
