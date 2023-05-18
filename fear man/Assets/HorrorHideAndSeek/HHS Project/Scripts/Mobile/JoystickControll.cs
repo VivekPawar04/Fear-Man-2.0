@@ -62,7 +62,7 @@ public class JoystickControll : MonoBehaviour, IDragHandler,IPointerUpHandler, I
     {
         if (isMoving)
         {
-            rectTransform.position = actualtPosition;
+            rectTransform.position += actualtPosition;
         }
 
         inputVector = Vector2.zero;
