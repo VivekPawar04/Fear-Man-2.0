@@ -17,6 +17,7 @@ public class JoystickControll : MonoBehaviour, IDragHandler,IPointerUpHandler, I
     void OnEnable()
     {
         CreateVirtualAxes();
+        
     }
 
 

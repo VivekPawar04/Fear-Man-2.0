@@ -19,6 +19,8 @@ public class Interact : MonoBehaviour {
     public Image interactButton;
     private PlayerController player;
 
+    
+
     private void Awake()
     {
         player = inventory.gameObject.GetComponent<PlayerController>();
