@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour {
     [Header("GeneralSettings")]
     [Tooltip("Object with GameControll.cs script")]
     public GameControll gameControll;
-    [HideInInspector]
+    [HideInInspector] 
     public Inventory inventory;
+    
 
     [Header("PlayerSettings")]
     [Tooltip("Player walk speed")]
@@ -105,6 +106,8 @@ public class PlayerController : MonoBehaviour {
         imageExitHidePlace.enabled = false;
 
     }
+
+
 
     private void Update()
     {
