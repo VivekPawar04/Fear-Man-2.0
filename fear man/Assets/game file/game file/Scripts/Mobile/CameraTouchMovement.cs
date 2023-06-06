@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class CameraTouchMovement : MonoBehaviour
 {
+    public Transform target; // Reference to the player object
     public float rotationSpeed = 10f;
     public float smoothness = 10f;
+    public Vector3 offset; // Offset between the camera and the player
 
     private float verticalRotation = 0f;
     private float horizontalRotation = 0f;
- 
     private Quaternion targetRotation;
 
-    void Update()
+    void LateUpdate() // Use LateUpdate for camera movement to ensure it follows the player after their movement
     {
         if (Input.touchCount == 1)
         {
@@ -26,15 +27,18 @@ public class CameraTouchMovement : MonoBehaviour
                 verticalRotation += rotateX;
                 horizontalRotation += rotateY;
 
-                // Limit the vertical rotation to prevent over-rotation
                 verticalRotation = Mathf.Clamp(verticalRotation, -80f, 80f);
 
                 targetRotation = Quaternion.Euler(verticalRotation, horizontalRotation, 0f);
             }
         }
 
-        // Smoothly rotate the camera towards the target rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, smoothness * Time.deltaTime);
-    }
 
+        // Calculate the desired position of the camera based on the player's position and the offset
+        Vector3 desiredPosition = target.position + offset;
+
+        // Smoothly move the camera towards the desired position
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothness * Time.deltaTime);
+    }
 }
