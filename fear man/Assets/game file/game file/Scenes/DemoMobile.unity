@@ -20963,9 +20963,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114052581144307338, guid: 3214a3384c47ec144ba64253eff1af6e,
         type: 3}
+      propertyPath: touchSensitivity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114052581144307338, guid: 3214a3384c47ec144ba64253eff1af6e,
+        type: 3}
       propertyPath: imageExitHidePlace
       value: 
       objectReference: {fileID: 718070567}
+    - target: {fileID: 114052581144307338, guid: 3214a3384c47ec144ba64253eff1af6e,
+        type: 3}
+      propertyPath: touchRotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 114865310767838938, guid: 3214a3384c47ec144ba64253eff1af6e,
         type: 3}
       propertyPath: database
@@ -20988,26 +20998,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3214a3384c47ec144ba64253eff1af6e, type: 3}
---- !u!1 &1493349248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1439071735958018, guid: 3214a3384c47ec144ba64253eff1af6e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1493349247}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1493349249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493349248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dce3acaa628a764982dd5096dd20666, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 10
-  smoothness: 10
 --- !u!1 &1494769379
 GameObject:
   m_ObjectHideFlags: 0

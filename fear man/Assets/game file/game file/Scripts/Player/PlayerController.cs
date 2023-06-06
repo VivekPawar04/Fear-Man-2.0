@@ -91,6 +91,14 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Sound of breaking legs")]
     public AudioClip legBreakSound;
     private bool legBreak;
+    [Header("Camera Settings")]
+    [Tooltip("Touch sensitivity for camera rotation")]
+    public float touchSensitivity;
+    [Tooltip("Speed of camera rotation when using touch")]
+    public float touchRotationSpeed;
+
+
+
 
 
 
@@ -123,10 +131,39 @@ public class PlayerController : MonoBehaviour {
                 Movement();
                 Controll();
             }
-            
-    
+        }
+        // Handle touch input for camera rotation
+        HandleCameraTouchControl();
+    }
+
+    private void HandleCameraTouchControl()
+    {
+        if (Input.touchCount == 1)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Moved)
+            {
+                float touchDeltaX = touch.deltaPosition.x * touchSensitivity;
+                float touchDeltaY = touch.deltaPosition.y * touchSensitivity;
+
+                clampX += touchDeltaY;
+                clampY += touchDeltaX;
+
+                clampX = Mathf.Clamp(clampX, clampXaxis.x, clampXaxis.y);
+                if (clampByY)
+                    clampY = Mathf.Clamp(clampY, clampYaxis.x, clampYaxis.y);
+
+                float targetRotationX = cameraTransform.localRotation.eulerAngles.x - touchDeltaY;
+                float targetRotationY = transform.localRotation.eulerAngles.y + touchDeltaX;
+
+                Quaternion targetRotation = Quaternion.Euler(targetRotationX, targetRotationY, 0f);
+                cameraTransform.rotation = Quaternion.Lerp(cameraTransform.rotation, targetRotation, Time.deltaTime * touchRotationSpeed);
+            }
         }
     }
+
+
 
     private void Controll()
     {
