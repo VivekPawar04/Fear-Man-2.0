@@ -9,7 +9,7 @@ public class CameraTouchMovement : MonoBehaviour
 
     private float verticalRotation = 0f;
     private float horizontalRotation = 0f;
-    
+ 
     private Quaternion targetRotation;
 
     void Update()
