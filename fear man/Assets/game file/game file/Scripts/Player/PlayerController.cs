@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour {
     [Tooltip("Sound of breaking legs")]
     public AudioClip legBreakSound;
     private bool legBreak;
+    private float xRotation = 0f;
+    public Transform playerBody;
 
 
 
@@ -274,60 +276,13 @@ public class PlayerController : MonoBehaviour {
         float mouseX = CrossPlatformInputManager.GetAxis("Mouse X") * (mouseSensetivity * 2) * Time.deltaTime;
         float mouseY = CrossPlatformInputManager.GetAxis("Mouse Y") * (mouseSensetivity * 2) * Time.deltaTime;
 
-        clampX += mouseY;
-        clampY += mouseX;
-
-        if (clampX > clampXaxis.y)
-        {
-            clampX = clampXaxis.y;
-            mouseY = 0.0f;
-            ClampXAxis(clampXaxis.x);
-        }
-        else if (clampX < clampXaxis.x)
-        {
-            clampX = clampXaxis.x;
-            mouseY = 0.0f;
-            ClampXAxis(clampXaxis.y);
-        }
-
-
-
-        if (clampByY)
-        {
-
-            if (clampY > clampYaxis.y)
-            {
-                clampY = clampYaxis.y;
-                mouseX = 0.0f;
-                ClampYAxis(clampYaxis.y);
-            }
-            else if (clampY < clampYaxis.x)
-            {
-                clampY = clampYaxis.x;
-                mouseX = 0.0f;
-                ClampYAxis(clampYaxis.x);
-            }
-        }
-
-
-        cameraTransform.Rotate(Vector3.left * mouseY);
-        transform.Rotate(Vector3.up * mouseX);
+        
+        playerBody.Rotate(Vector3.up * mouseX);
+        
+        
     }
 
-    private void ClampXAxis(float value)
-    {
-        Vector3 camEuler = cameraTransform.eulerAngles;
-        camEuler.x = value;
-        cameraTransform.eulerAngles = camEuler;
-    }
-
-    private void ClampYAxis(float value)
-    {
-        Vector3 camEuler = transform.eulerAngles;
-        camEuler.y = value;
-        transform.eulerAngles = camEuler;
-    }
-
+    
     private void SetCrouch()
     {
         if (!crouch)
@@ -390,6 +345,6 @@ public class PlayerController : MonoBehaviour {
     }
 
 }
-
+    
 
 
