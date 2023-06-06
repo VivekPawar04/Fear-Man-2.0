@@ -20964,7 +20964,7 @@ PrefabInstance:
     - target: {fileID: 114052581144307338, guid: 3214a3384c47ec144ba64253eff1af6e,
         type: 3}
       propertyPath: touchSensitivity
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114052581144307338, guid: 3214a3384c47ec144ba64253eff1af6e,
         type: 3}
@@ -20974,7 +20974,7 @@ PrefabInstance:
     - target: {fileID: 114052581144307338, guid: 3214a3384c47ec144ba64253eff1af6e,
         type: 3}
       propertyPath: touchRotationSpeed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114865310767838938, guid: 3214a3384c47ec144ba64253eff1af6e,
         type: 3}
