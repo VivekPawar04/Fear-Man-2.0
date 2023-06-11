@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/game file/game file/Scenes/LoadScene.unity
     guid: 9c1efd5d657f62e4baacb6015c2865d9
   - enabled: 1
-    path: Assets/game file/game file/Scenes/DemoMobile.unity
+    path: Assets/game file/game file/Scenes/NewMainScence.unity
     guid: 506f26b29c2592543add520ccf971799
   m_configObjects: {}
